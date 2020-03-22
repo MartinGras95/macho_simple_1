@@ -1,0 +1,12 @@
+html,body{
+    margin: 0;
+}
+
+.primary-color{
+    background-color: #a77e58;
+}
+
+.button-primary{
+    color: white;
+    border-color: white;
+}
