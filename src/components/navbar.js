@@ -21,7 +21,8 @@ const Navibar = () => {
                     scroll.scrollToTop()}>Home</Nav.Link>
                 <Link className={navbarStyles.link} to='aboutsection'smooth={true} offset={-50} duration={1000}><Nav.Link>About</Nav.Link></Link>
                 <Link className={navbarStyles.link} to='footer'smooth={true} offset={-50} duration={1000}><Nav.Link>Contact</Nav.Link></Link>
-            </Nav>
+            
+                </Nav>
             </Navbar.Collapse>
         </Navbar>
     )
