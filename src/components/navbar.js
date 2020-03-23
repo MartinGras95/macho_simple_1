@@ -19,8 +19,8 @@ const Navibar = () => {
             <Nav className="mr-auto">
                 <Nav.Link onClick={() =>
                     scroll.scrollToTop()}>Home</Nav.Link>
-                <Link to='aboutsection'smooth={true} offset={-50} duration={1000}><Nav.Link>About</Nav.Link></Link>
-                <Link to='footer'smooth={true} offset={-50} duration={1000}><Nav.Link>Contact</Nav.Link></Link>
+                <Link className={navbarStyles.link} to='aboutsection'smooth={true} offset={-50} duration={1000}><Nav.Link>About</Nav.Link></Link>
+                <Link className={navbarStyles.link} to='footer'smooth={true} offset={-50} duration={1000}><Nav.Link>Contact</Nav.Link></Link>
             </Nav>
             </Navbar.Collapse>
         </Navbar>
