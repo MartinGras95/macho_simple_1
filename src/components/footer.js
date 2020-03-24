@@ -5,10 +5,11 @@ import {useStaticQuery} from 'gatsby'
 import footerStyles from "../styles/footer.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import Img from "gatsby-image"
 
-const facebookIcon = <FontAwesomeIcon icon={faFacebookSquare} size="3x" />
-const twitterIcon = <FontAwesomeIcon icon={faTwitter} size="3x" />
-const youtubeIcon = <FontAwesomeIcon icon={faYoutube} size="3x" />
+const facebookIcon = <FontAwesomeIcon icon={faFacebookSquare} size="2x" />
+const twitterIcon = <FontAwesomeIcon icon={faTwitter} size="2x" />
+const youtubeIcon = <FontAwesomeIcon icon={faYoutube} size="2x" />
 
 
 const Footer = () => {
@@ -22,12 +23,24 @@ const Footer = () => {
                 fax
             }
         }
+        file(relativePath: {eq: "images/logo.png"}) {
+            id
+            childImageSharp {
+              fixed(width: 100) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
     }
 `)
 
     return (
         <footer id="footer" className={footerStyles.container}>
             <div className={footerStyles.content}>
+            <Img 
+                fixed={data.file.childImageSharp.fixed}
+                alt="Company Logo"
+            />
                 <div className={footerStyles.icons}>
                     <p className={footerStyles.icon}>{facebookIcon}</p>
                     <p className={footerStyles.icon}>{twitterIcon}</p>
