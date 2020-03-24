@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {useStaticQuery} from 'gatsby'
+
 import footerStyles from "../styles/footer.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
@@ -10,6 +12,19 @@ const youtubeIcon = <FontAwesomeIcon icon={faYoutube} size="3x" />
 
 
 const Footer = () => {
+
+    const data = useStaticQuery(graphql`
+    query{
+        site {
+            siteMetadata {
+                email
+                phone
+                fax
+            }
+        }
+    }
+`)
+
     return (
         <footer id="footer" className={footerStyles.container}>
             <div className={footerStyles.content}>
@@ -20,9 +35,9 @@ const Footer = () => {
                 </div>
                 <div>
                     <h3>Get in touch</h3>
-                    <p>Phone: +34 637 73652 222</p>
-                    <p>Email: Example@email.com</p>
-                    <p>Fax: 93876</p>
+                    <p>Phone: {data.site.siteMetadata.phone}</p>
+                    <p>Email: {data.site.siteMetadata.email}</p>
+                    <p>Fax: {data.site.siteMetadata.fax}</p>
                 </div>
                 <div className={footerStyles.address}>
                     <h3>Address</h3>
